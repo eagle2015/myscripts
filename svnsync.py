@@ -6,7 +6,6 @@ import os
 import datetime
 import logging
 import time
-from multiprocessing import Pool
 from multiprocessing.dummy import Pool as ThreadPool
 
 SVN_BIN = "/usr/local/subversion/bin/"
