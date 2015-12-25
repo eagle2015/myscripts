@@ -14,10 +14,10 @@ SVN_PATH = "/var/lib/svn/repos/"
 SYNC_PATH = "/data/svnback3_3/svn2/svnsync/repos/"
 SVN_CO_ROOT_PATH = "http://127.0.0.1/svn/repos/"
 DATETIME = (datetime.datetime.now()).strftime('%Y%m%d-%H%M%S')
-LOG_PATH = "/home/ryan/svn2/svnsync/logs/"
+LOG_PATH = "/data/svn2/svnsync/logs/"
 LOG_FILE_NAME = "svnsync.log"
-SVN_ADMIN_USER = "neil"
-SVN_ADMIN_PASSWORD = "neil1234"
+SVN_ADMIN_USER = "svnuser"
+SVN_ADMIN_PASSWORD = "svnpassword"
 
 # 主函数
 
