@@ -36,7 +36,7 @@ createlog()
 			echo "local2.debug         /var/log/history.log"  >> /etc/syslog.conf
 			/etc/init.d/syslog restart
 		else
-			echo "local2.debug exits"
+			echo "local2.debug exists"
 		fi
 
 	fi
@@ -48,7 +48,7 @@ createlog()
 			echo "local2.debug         /var/log/history.log"  >> /etc/rsyslog.conf
 			/etc/init.d/rsyslog restart
 		else
-			echo "local2.debug exits"
+			echo "local2.debug exists"
 		fi
 
 	fi
@@ -62,7 +62,7 @@ mymain()
 {
     if [ -f /etc/profile.d/history.sh ];then
         source /etc/profile.d/history.sh
-        echo "history.sh exits"
+        echo "history.sh exists"
     else
         createhistory
         createlog
