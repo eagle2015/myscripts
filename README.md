@@ -20,4 +20,4 @@
 
 4:myhistory.sh
 ------
-        记录history命令到文件记录
+        记录history命令到文件记录(可以通过elk日志系统收集)
