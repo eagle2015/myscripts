@@ -10,6 +10,7 @@
 * svn备份脚本
 * svnhotcopy.py  svnhotcopy方式完整备份
 * svnsync.py     svnsync 同步差异备份
+
 ####4:myhistory.sh
 * 记录history命令到文件记录(可以通过elk日志系统收集),收集结果如下：
 ```BASH
