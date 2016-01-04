@@ -13,10 +13,14 @@ PROMPT_COMMAND='
     comm=\$(history 1 |sed -r "s/\s+[0-9]+\s+//");
     host=\$(who am i -u | sed -r "s/.*\((.*)\)/\1/");
     if [ "\$id" != "\$lastid" -a ! -z "\$lastid" ]; then
-        /bin/logger -p local2.debug -t bash -i "user=\$(whoami), login=\$USER, from=\$host, pwd=\$PWD, command=\"\$comm\"";
+        logger -p local2.debug -t bash -i "user=\$(whoami), login=\$USER, from=\$host, pwd=\$PWD, command=\"\$comm\"";
     fi;
     lastid=\$id;
 }'
+
+bind '"\e[A":history-search-backward'
+bind '"\e[B":history-search-forward'
+
 export HISTTIMEFORMAT
 export PROMPT_COMMAND
 EOF
@@ -54,15 +58,17 @@ createlog()
 }
 
 
+
+
 mymain()
 {
     if [ -f /etc/profile.d/history.sh ];then
-        . /etc/profile.d/history.sh
+        source /etc/profile.d/history.sh
         echo "history.sh exits"
     else
         createhistory
         createlog
-        . /etc/profile.d/history.sh
+        source /etc/profile.d/history.sh
     fi
 
 }
