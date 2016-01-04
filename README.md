@@ -1,23 +1,32 @@
-我的相关脚本
-====
-1:thearding_queue.py
+###我的相关脚本
+
+####1:thearding_queue.py
 ------
         该脚本用来统计某url的返回状态，如果不是200就记录到文件中
         url是从csv文件中取出并放入query队列中，然后启用多线程并发执行检测
         csv文件主要是由url对应的编号+url后缀
 
-2:myrsync.sh  
-------
-        线上同步脚本
-
-
-
-3:svnhotcopy.py  svnsync.py
+####2:myrsync.sh  
 ------
 
-        svn备份脚本
+* 线上同步脚本
 
 
-4:myhistory.sh
+
+####3:svnhotcopy.py  svnsync.py
 ------
-        记录history命令到文件记录(可以通过elk日志系统收集)
+
+* svn备份脚本
+
+
+####4:myhistory.sh
+------
+* 记录history命令到文件记录(可以通过elk日志系统收集),收集结果如下：
+```BASH
+[root@ryan ryan]# cat /var/log/history.log 
+Jan  4 16:30:03 ryan bash[19452]: user=root, login=root, from=192.168.2.159, pwd=/root, command="2016-01-04 16:30:03 ls"
+Jan  4 16:30:07 ryan bash[19465]: user=root, login=root, from=192.168.2.159, pwd=/root, command="2016-01-04 16:30:07 cat /var/log/history.log "
+Jan  4 16:30:12 ryan bash[19478]: user=root, login=root, from=192.168.2.159, pwd=/root, command="2016-01-04 16:30:12 pwd"
+Jan  4 16:30:13 ryan bash[19490]: user=root, login=root, from=192.168.2.159, pwd=/, command="2016-01-04 16:30:13 cd /"
+Jan  4 16:30:19 ryan bash[19526]: user=root, login=root, from=192.168.2.159, pwd=/home/ryan, command="2016-01-04 16:30:19 cd /home/ryan"
+```
