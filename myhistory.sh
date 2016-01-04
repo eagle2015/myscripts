@@ -18,8 +18,6 @@ PROMPT_COMMAND='
     lastid=\$id;
 }'
 
-bind '"\e[A":history-search-backward'
-bind '"\e[B":history-search-forward'
 
 export HISTTIMEFORMAT
 export PROMPT_COMMAND
