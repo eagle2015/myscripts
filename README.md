@@ -16,3 +16,8 @@
 ------
 
         svn备份脚本
+
+
+4:myhistory.sh
+------
+        记录history命令到文件记录
