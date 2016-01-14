@@ -12,8 +12,9 @@ PROMPT_COMMAND='
     id=\$(history 1 |sed -r "s/^\s+([0-9]+).*/\1/");
     comm=\$(history 1 |sed -r "s/\s+[0-9]+\s+//");
     host=\$(who am i -u | sed -r "s/.*\((.*)\)/\1/");
+    login=\$(who am i -u | cut -d " " -f 1);
     if [ "\$id" != "\$lastid" -a ! -z "\$lastid" ]; then
-        logger -p local2.debug -t bash -i "user=\$(whoami), login=\$USER, from=\$host, pwd=\$PWD, command=\"\$comm\"";
+        logger -p local2.debug -t bash -i "user=\$(whoami), login=\$login, from=\$host, pwd=\$PWD, command=\"\$comm\"";
     fi;
     lastid=\$id;
 }'
