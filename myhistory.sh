@@ -11,7 +11,7 @@ PROMPT_COMMAND='
 {
     id=\$(history 1 |sed -r "s/^\s+([0-9]+).*/\1/");
     comm=\$(history 1 |sed -r "s/\s+[0-9]+\s+//");
-    host=\$(who am i -u | awk '{print $1}');
+    host=\$(who am i -u | awk '{print \$1}');
     if [ "\$id" != "\$lastid" -a ! -z "\$lastid" ]; then
         logger -p local2.debug -t bash -i "user=\$(whoami), login=\$USER, from=\$host, pwd=\$PWD, command=\"\$comm\"";
     fi;
