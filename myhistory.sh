@@ -1,3 +1,4 @@
+#!/bin/bash
 createhistory()
 {
 
@@ -69,3 +70,4 @@ mymain()
 }
 
 mymain
+exit 0
