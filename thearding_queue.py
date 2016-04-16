@@ -7,8 +7,8 @@ import threading
 import Queue
 from requests.exceptions import ConnectionError
 
-projectname = "nastydress"
-URL_PREFIXURL = "http://gloimg.nastydress.com/"
+projectname = "xxxx"
+URL_PREFIXURL = "http://xxx.xxxx.com/"
 
 CSVFILE = "%s.csv" % projectname
 OTHER = "%s_other.csv" % projectname
