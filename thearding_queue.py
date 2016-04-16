@@ -5,12 +5,17 @@ import csv
 import requests
 import threading
 import Queue
+from requests.exceptions import ConnectionError
 
-projectname = "test"
-URL_PREFIXURL = "http://www.xxx.com/"
+projectname = "nastydress"
+URL_PREFIXURL = "http://gloimg.nastydress.com/"
+
 CSVFILE = "%s.csv" % projectname
-LOGS = "%s_not200.csv" % projectname
+OTHER = "%s_other.csv" % projectname
 KONG = "%s_kong.csv" % projectname
+TIMEOUT = "%s_timeout.csv" % projectname
+NOTFOUND = "%s_notfound.csv" % projectname
+
 threads = 400
 
 
@@ -45,11 +50,27 @@ def get_notfound(url_queue):
                 file_path = ""
             if file_path == "":
                 setLog(sku,KONG)
-            status_code = requests.head(URL_PREFIXURL + file_path).status_code
+
+
+	    try:
+            	status_code = requests.head(URL_PREFIXURL + file_path,timeout=60).status_code
+	    except ConnectionError:
+		status_code = "timeout"
+
+
             rline = sku+ ','+file_path+','+str(status_code)
             print rline
-            if status_code != 200:
-                setLog(rline,LOGS)
+
+
+
+            if status_code == "timeout":
+                setLog(rline,TIMEOUT)
+
+	    elif status_code == 404:
+		setLog(rline,NOTFOUND)
+
+	    elif status_code != 200:
+                setLog(rline,OTHER)
 
 
 def setLog(msg,filename):
